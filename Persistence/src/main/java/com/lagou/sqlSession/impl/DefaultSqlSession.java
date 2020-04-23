@@ -7,10 +7,10 @@ import com.lagou.sqlSession.SqlSession;
 import java.lang.reflect.*;
 import java.util.List;
 
-public class DefultSqlSession implements SqlSession {
+public class DefaultSqlSession implements SqlSession {
     private Configuration configuration;
     private SimpleExcutor sampleExcutor = new SimpleExcutor();
-    public DefultSqlSession(Configuration configuration) {
+    public DefaultSqlSession(Configuration configuration) {
         this.configuration = configuration;
     }
 
