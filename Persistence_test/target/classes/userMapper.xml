@@ -1,0 +1,9 @@
+<mapper namespace="com.lagou.dao.UserDao">
+    <select id="findAll" resultType="com.lagou.pojo.User">
+        select * from user
+    </select>
+
+    <select id="findByCondition" resultType="com.lagou.pojo.User" parameterType="com.lagou.pojo.User">
+        select * from user where id=#{id} and name=#{name}
+    </select>
+</mapper>
