@@ -1,4 +1,4 @@
-<mapper namespace="com.lagou.dao.UserDao">
+<mapper namespace="com.lagou.dao.UserMapper">
     <select id="findAll" resultType="com.lagou.pojo.User">
         select * from user
     </select>

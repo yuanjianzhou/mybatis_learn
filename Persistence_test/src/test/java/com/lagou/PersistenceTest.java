@@ -1,6 +1,6 @@
 package com.lagou;
 
-import com.lagou.dao.UserDao;
+import com.lagou.dao.UserMapper;
 import com.lagou.pojo.User;
 import com.lagou.io.Resources;
 import com.lagou.sqlSession.SqlSession;
@@ -18,7 +18,7 @@ public class PersistenceTest {
         InputStream in = Resources.getResourceAsInputeStream("sqlMapConfig.xml");
         SqlSessionFactrory sqlSessionFactrory = new SqlSessionFactroryBuilder().build(in);
         SqlSession sqlSession = sqlSessionFactrory.openSqlSession();
-        UserDao userMapper = sqlSession.getMapper(UserDao.class);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         List<User> users = userMapper.findAll();
         for (User user : users) {
             System.out.println(user);

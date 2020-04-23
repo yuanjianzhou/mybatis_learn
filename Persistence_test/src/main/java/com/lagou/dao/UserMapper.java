@@ -4,7 +4,7 @@ import com.lagou.pojo.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserMapper {
     public List<User> findAll();
     public User findByCondition(User user);
 }
