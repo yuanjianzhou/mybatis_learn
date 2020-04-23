@@ -1,6 +1,6 @@
 <configuration>
     <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-    <property name="jdbcUrl" value="jdbc:mysql:///mybatis"></property>
+    <property name="jdbcUrl" value="jdbc:mysql:///mybatis"></property><!--localhost:3306和/是等比的，/代表是本地数据库-->
     <property name="user" value="root"></property>
     <property name="password" value="root"></property>
 
