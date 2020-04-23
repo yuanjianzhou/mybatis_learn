@@ -11,7 +11,7 @@ import org.junit.Test;
 import java.io.InputStream;
 import java.util.List;
 
-public class IPrenceTest {
+public class PersistenceTest {
 
     @Test
     public void test() throws Exception {
