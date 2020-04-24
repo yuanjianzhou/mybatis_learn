@@ -14,8 +14,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class MybatisTest {
     @Test
@@ -71,6 +69,26 @@ public class MybatisTest {
                 System.out.println(role);
             }
             System.out.println("------------");
+        }
+    }
+
+    @Test
+    public void test4() throws IOException {
+        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);//true 自动提交事务
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        List<User> users = userMapper.findAll();
+        for (User user : users) {
+            System.out.println(user);
+        }
+        System.out.println("--------------------");
+        User user = new User(10,"test");
+        userMapper.save(user);
+        List<User> users1 = userMapper.findAll();
+        for (User user1 : users1) {
+            System.out.println(user1);
         }
     }
 }

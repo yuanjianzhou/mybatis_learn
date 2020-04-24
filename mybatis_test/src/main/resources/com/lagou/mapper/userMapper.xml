@@ -5,7 +5,7 @@
 <mapper namespace="com.lagou.mapper.UserMapper">
     <resultMap id="resultMap" type="com.lagou.pojo.User">
         <result column="id" property="id"></result>
-        <result column="username" property="username"></result>
+        <result column="name" property="name"></result>
         <collection property="orderList" ofType="com.lagou.pojo.Order">
             <result property="id" column="oid"></result>
             <result property="orderTime" column="orderTime"></result>
@@ -38,5 +38,26 @@
 
     <select id="findAllUserAndRole" resultMap="userRoleMap">
       SELECT *,r.id rid FROM user u LEFT JOIN user_role ur on ur.user_id=u.id INNER JOIN role r on r.id=ur.role_id
+    </select>
+
+    <insert id="save" parameterType="com.lagou.pojo.User">
+        insert into user values(#{id},#{name})
+    </insert>
+
+    <update id="update" parameterType="com.lagou.pojo.User">
+        UPDATE user SET name=#{name} where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        DELETE FROM user WHERE id=#{id}
+    </delete>
+
+    <select id="findByIds" parameterType="java.util.List" resultType="com.lagou.pojo.User">
+        SELECT * FROM user
+        <where>
+            <foreach collection="ids" open="id in (" close=")" item="id" separator=",">
+                #{id}
+            </foreach>
+        </where>
     </select>
 </mapper>
